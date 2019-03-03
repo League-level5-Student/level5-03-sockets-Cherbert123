@@ -32,8 +32,9 @@ public class ButtonClicker extends JFrame {
 			});
 
 			add(textField);
+			textField.setToolTipText("Enter text here to send to other user");
 			setVisible(true);
-			setSize(400, 300);
+			setSize(400, 100);
 			setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 			server.start();
 
@@ -48,8 +49,9 @@ public class ButtonClicker extends JFrame {
 			});
 
 			add(textField);
+			textField.setToolTipText("Enter text here to send to other user");
 			setVisible(true);
-			setSize(400, 300);
+			setSize(400, 100);
 			setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 			client.start();
 		}
