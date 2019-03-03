@@ -4,7 +4,6 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.net.Socket;
-import java.net.UnknownHostException;
 
 import javax.swing.JOptionPane;
 
@@ -22,7 +21,7 @@ public class Client {
 		this.port = port;
 	}
 
-	public void start(){
+	public void start() {
 		try {
 
 			connection = new Socket(ip, port);
@@ -32,12 +31,11 @@ public class Client {
 
 			os.flush();
 
-			
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
+
 		while (connection.isConnected()) {
 			try {
 				JOptionPane.showMessageDialog(null, is.readObject());
@@ -48,11 +46,11 @@ public class Client {
 			}
 		}
 	}
-	
-	public void sendClick() {
+
+	public void sendClick(String text) {
 		try {
 			if (os != null) {
-				os.writeObject("CLICK SENT FROM CLIENT");
+				os.writeObject("Client: " + text);
 				os.flush();
 			}
 		} catch (IOException e) {

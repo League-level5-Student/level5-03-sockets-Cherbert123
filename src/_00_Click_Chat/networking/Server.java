@@ -24,7 +24,7 @@ public class Server {
 		this.port = port;
 	}
 
-	public void start(){
+	public void start() {
 		try {
 			server = new ServerSocket(port, 100);
 
@@ -39,7 +39,7 @@ public class Server {
 				try {
 					JOptionPane.showMessageDialog(null, is.readObject());
 					System.out.println(is.readObject());
-				}catch(EOFException e) {
+				} catch (EOFException e) {
 					JOptionPane.showMessageDialog(null, "Connection Lost");
 					System.exit(0);
 				}
@@ -49,7 +49,7 @@ public class Server {
 			e.printStackTrace();
 		}
 	}
-	
+
 	public String getIPAddress() {
 		try {
 			return InetAddress.getLocalHost().getHostAddress();
@@ -62,10 +62,10 @@ public class Server {
 		return port;
 	}
 
-	public void sendClick() {
+	public void sendClick(String text) {
 		try {
 			if (os != null) {
-				os.writeObject("CLICK SENT FROM SERVER");
+				os.writeObject("Server: " + text);
 				os.flush();
 			}
 		} catch (IOException e) {
